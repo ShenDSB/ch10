@@ -8,7 +8,7 @@ public class Fraction{
 	
 	public Fraction() { // defult constructors
 		numerator = 114514;
-		denominator = 0721;
+		denominator = 721;
 	}
 	
 	public Fraction(int a, int b ) { // parameterized constructors
@@ -16,14 +16,26 @@ public class Fraction{
 		denominator = b;
 	}
 	
+	public Fraction(String a) { // parameterized constructors
+		int ind = a.indexOf("/");
+		String fr = a.substring(0,ind);
+		String ba = a.substring(ind+1);
+		numerator = Integer.parseInt(fr);
+		denominator = Integer.parseInt(ba);
+	}
+	
+	public Fraction(Fraction a) { // parameterized constructors
+		numerator = a.numerator;
+		denominator = a.denominator;
+	}
 	
 	//behaviour method (Accessor, Mutator, helper)
 	
-	public getNum(){
+	public int getNum(){
 		return numerator;
 	}
 	
-	public getDenum(){
+	public int getDenum(){
 		return denominator;
 	}
 	
