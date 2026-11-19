@@ -39,5 +39,12 @@ public class Fraction{
 		return denominator;
 	}
 	
+	public static Fraction mult (Fraction a, Fraction b){
+		int n = a.getNum() * b.getNum();
+		int d = a.getDenum() * b.getDenum();
+		Fraction answer = new Fraction(n,d);
+		return answer;
+		
+	}
 	
 }
