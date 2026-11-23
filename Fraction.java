@@ -39,12 +39,48 @@ public class Fraction{
 		return denominator;
 	}
 	
+	public static int GCF_fr (Fraction c){
+		int a = c.getNum();
+		int b = c.getDenum();
+		while (a!=b){
+			if (a<b) b-=a ;
+			if (a>b) a-=b ;
+			if (a==b) break;
+		}
+		return a;
+	}
+	
+	public static int GCF_int (int a, int b){
+		int a = c.getNum();
+		int b = c.getDenum();
+		while (a!=b){
+			if (a<b) b-=a ;
+			if (a>b) a-=b ;
+			if (a==b) break;
+		}
+		return a;
+	}
+	
 	public static Fraction mult (Fraction a, Fraction b){
 		int n = a.getNum() * b.getNum();
 		int d = a.getDenum() * b.getDenum();
 		Fraction answer = new Fraction(n,d);
 		return answer;
-		
 	}
 	
+	public static Fraction divide (Fraction a, Fraction b){
+		int n = a.getNum() * b.getDenum();
+		int d = a.getDenum() * b.getNum();
+		Fraction answer = new Fraction(n,d);
+		return answer;
+	}
+	
+	public static Fraction add (Fraction a, Fraction b){
+		int n1 = a.getNum();
+		int n2 = b.getNum();
+		int d1 = a.getDenum();
+		int d2 = b.getDenum();
+		Fraction answer = new Fraction(n,d);
+		return answer;
+	}
 }
