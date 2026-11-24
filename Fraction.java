@@ -51,8 +51,6 @@ public class Fraction{
 	}
 	
 	public static int GCF_int (int a, int b){
-		int a = c.getNum();
-		int b = c.getDenum();
 		while (a!=b){
 			if (a<b) b-=a ;
 			if (a>b) a-=b ;
@@ -80,6 +78,23 @@ public class Fraction{
 		int n2 = b.getNum();
 		int d1 = a.getDenum();
 		int d2 = b.getDenum();
+		int d = (d1 * d2) / (GCF_int(d1,d2));
+		n1 = (d/d1) * n1;
+		n2 = (d/d2) * n2;
+		int n = n1 + n2; 
+		Fraction answer = new Fraction(n,d);
+		return answer;
+	}
+	
+	public static Fraction minus (Fraction a, Fraction b){
+		int n1 = a.getNum();
+		int n2 = b.getNum();
+		int d1 = a.getDenum();
+		int d2 = b.getDenum();
+		int d = (d1 * d2) / (GCF_int(d1,d2));
+		n1 = (d/d1) * n1;
+		n2 = (d/d2) * n2;
+		int n = n1 - n2; 
 		Fraction answer = new Fraction(n,d);
 		return answer;
 	}
