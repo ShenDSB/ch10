@@ -59,6 +59,12 @@ public class Fraction{
 		return a;
 	}
 	
+	public static Fraction reduce (Fraction a){
+		int b = Fraction.GCF_fr(a);
+		Fraction answer = new Fraction((a.getNum())/b,(a.getDenum())/b);
+		return answer;
+	}
+	
 	public static Fraction mult (Fraction a, Fraction b){
 		int n = a.getNum() * b.getNum();
 		int d = a.getDenum() * b.getDenum();
@@ -98,4 +104,6 @@ public class Fraction{
 		Fraction answer = new Fraction(n,d);
 		return answer;
 	}
+	
+	
 }
