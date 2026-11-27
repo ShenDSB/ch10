@@ -7,6 +7,8 @@ public class FractionQuiz{
 		Random random = new Random();
 		Scanner in = new Scanner(System.in);
 		String[] signs = {"+","-","*","/"};
+		int ques = 0;
+		int correct = 0;
 		while (true){
 			int n1 = random.nextInt(9)+1;
 			int d1 = random.nextInt(9)+1;
@@ -15,15 +17,18 @@ public class FractionQuiz{
 			int sign = random.nextInt(4);
 			System.out.print(n1 + "/" + d1 + " " + signs[sign] + " " + n2 + "/" + d2+" = ");
 			String cal = in.nextLine();
-			Fraction ca = new Fraction(cal);
 			if (cal.equals("quit")) break;
+			ques ++;
+			Fraction ca = new Fraction(cal);
 			Fraction f1 = new Fraction(n1,d1);
 			Fraction f2 = new Fraction(n2,d2);
+			
 			if (sign == 0){
 				Fraction ans_noreduce = Fraction.add(f1,f2);
 				Fraction ans = Fraction.reduce(ans_noreduce);
 				if ((ca.getNum()==ans.getNum())&&(ca.getDenum()==ans.getDenum())){
 					System.out.println("Correct!");
+					correct ++;
 				}
 				else System.out.println("Wrong, the answer was " + ans.getNum() + "/" + ans.getDenum());
 				
@@ -34,6 +39,7 @@ public class FractionQuiz{
 				Fraction ans = Fraction.reduce(ans_noreduce);
 				if ((ca.getNum()==ans.getNum())&&(ca.getDenum()==ans.getDenum())){
 					System.out.println("Correct!");
+					correct ++;
 				}
 				else System.out.println("Wrong, the answer was " + ans.getNum() + "/" + ans.getDenum());
 				
@@ -44,6 +50,7 @@ public class FractionQuiz{
 				Fraction ans = Fraction.reduce(ans_noreduce);
 				if ((ca.getNum()==ans.getNum())&&(ca.getDenum()==ans.getDenum())){
 					System.out.println("Correct!");
+					correct ++;
 				}
 				else System.out.println("Wrong, the answer was " + ans.getNum() + "/" + ans.getDenum());
 				
@@ -54,6 +61,7 @@ public class FractionQuiz{
 				Fraction ans = Fraction.reduce(ans_noreduce);
 				if ((ca.getNum()==ans.getNum())&&(ca.getDenum()==ans.getDenum())){
 					System.out.println("Correct!");
+					correct ++;
 				}
 				else System.out.println("Wrong, the answer was " + ans.getNum() + "/" + ans.getDenum());
 				
@@ -61,5 +69,7 @@ public class FractionQuiz{
 			
 			
 		}
+		int score = 100 * correct / ques;
+		System.out.println("You answered "+correct+"/"+ques+" correctly, for a score of "+score+" percent!");
 	}
 }
